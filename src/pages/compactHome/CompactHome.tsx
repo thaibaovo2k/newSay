@@ -20,21 +20,21 @@ import ButtonAdd from "../../components/buttonAdd/ButtonAdd";
 
 type Props = {};
 
-const Home = (props: Props) => {
+const CompactHome = (props: Props) => {
   const windowWidth = Dimensions.get("window").width;
 
   return (
-    <View style={{ display: "flex", flexDirection: "column", gap:0 }}>
+    <View style={{ display: "flex", flexDirection: "column", gap:0}}>
       <Header />
       <Swiper />
       <Category title="Sport" btn={true} data={sportData} />
-      <Category title="Health" btn={true} data={healthData} />
-      <Category title="Mini Game" data={gameData} />
-      <NewsCart title="Watch it" btn={false} data={watchData[0]} />
-      <Category btn={false} data={gameData2} />
-      <HoriCategory title="Word" data={wordData} btn={true} />
-      <Categories title="Categories" data={categoriesData} />
-      <Categories title="Top Word" data={topWordData} />
+      <Category btn={true} data={sportData} />
+      {/* <Category title="Mini Game" data={gameData} /> */}
+      {/* <NewsCart title="Watch it" btn={false} data={watchData[0]} /> */}
+      {/* <Category btn={false} data={gameData2} /> */}
+      <HoriCategory title="Lastest News" data={wordData} btn={true} />
+      {/* <Categories title="Categories" data={categoriesData} /> */}
+      {/* <Categories title="Top Word" data={topWordData} /> */}
       <View style={{ width: windowWidth, alignItems:'flex-end',paddingRight:24,paddingBottom:24}}>
         <ButtonAdd />
       </View>
@@ -42,4 +42,4 @@ const Home = (props: Props) => {
   );
 };
 
-export default Home;
+export default CompactHome;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text,Dimensions } from "react-native";
 import Cart from "../cart/Cart";
 import HoriCart from "../horiCart/HoriCart";
 
@@ -10,6 +10,8 @@ type Props = {
 };
 
 const HoriCategory = ({ title, data,btn }: Props) => {
+    const windowWidth = Dimensions.get('window').width;
+
   return (
     <View>
       <View
@@ -18,9 +20,10 @@ const HoriCategory = ({ title, data,btn }: Props) => {
           flexDirection: "row",
           justifyContent: "space-between",
           height:32,
-          marginLeft: 16,
-          marginRight: 24,
+          marginRight: 32,
+          marginLeft:24,
           marginBottom: 8,
+        //   width:windowWidth
         }}
       >
         <Text style={{ fontSize: 24, fontWeight: "900" }}>{title}</Text>

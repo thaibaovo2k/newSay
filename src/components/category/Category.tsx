@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text,Dimensions } from "react-native";
 import Cart from "../cart/Cart";
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 };
 
 const Category = ({ title, data,btn }: Props) => {
+    const windowWidth = Dimensions.get("window").width;
   return (
     <View>
       <View
@@ -19,9 +20,10 @@ const Category = ({ title, data,btn }: Props) => {
           marginLeft: 16,
           marginRight: 24,
           marginBottom: 8,
+        //   width:windowWidth
         }}
       >
-        <Text style={{ fontSize: 24, fontWeight: "900" }}>{title}</Text>
+        <Text style={{ fontSize: 24, fontWeight: "900", }}>{title}</Text>
         {(!title) ? (
           <Text></Text>
         ) : (
@@ -37,7 +39,7 @@ const Category = ({ title, data,btn }: Props) => {
           </Text>
         )}
       </View>
-      <View style={{ display: "flex", flexDirection: "row" ,marginLeft:1}}>
+      <View style={{ display: "flex", flexDirection: "row" ,marginLeft:1, width:windowWidth,alignItems:'center',justifyContent:'center'}}>
         <Cart btn={btn} data={data?.[0]} />
         <Cart btn={btn} data={data?.[1]} />
       </View>

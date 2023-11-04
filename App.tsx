@@ -1,21 +1,31 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ScrollView, Text } from "react-native";
-import Home from "./src/pages/home/Home";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { RecoilRoot, useRecoilState } from "recoil";
 import Navigation from "./src/components/navigation/Navigation";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { pageState } from "./src/managerState";
+import Home from "./src/pages/home/Home";
+import CompactHome from "./src/pages/compactHome/CompactHome";
+import NewsPage from "./src/pages/newsPage/NewsPage";
+import SearchScreen from "./src/pages/searchScreen/SearchScreen";
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <Home />
-      </ScrollView>
-      <View style={styles.menu}>
-        <Navigation />
+    <RecoilRoot>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.content}>
+          {/* <Home /> */}
+          {/* <CompactHome/> */}
+          {/* <NewsPage/> */}
+          <SearchScreen/>
+        </ScrollView>
+        <View style={styles.menu}>
+          <Navigation />
+        </View>
       </View>
-    </View>
+    </RecoilRoot>
   );
 }
+
+export default App
 
 const styles = StyleSheet.create({
   header: {
@@ -29,7 +39,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1, // To expand the content to fill the available space
-    paddingBottom:64
+    paddingBottom: 50,
   },
   textContent: {
     fontSize: 20,

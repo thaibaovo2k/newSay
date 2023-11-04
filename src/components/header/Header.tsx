@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, ReactElement, useRef, useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Dropdown from "../dropdown/DropDown";
+interface Props {
+  label: string;
 
-const Header = (props) => {
+  mode: string;
+}
+const Header: FC<Props> = ({ label,mode }) => {
   const [selectedValue, setSelectedValue] = useState("Option 1");
   const data = [
     // { label: "World", value: "0" },
@@ -14,11 +18,10 @@ const Header = (props) => {
   ];
   const [selected, setSelected] = useState(undefined);
   return (
-    <View style={styles.header}>
+    <View style={mode == 'dark' ? styles.headerDark :styles.header}>
       <Text style={styles.header_title}>DAILY NEWS</Text>
       <View style={styles.group_btn}>
         <TouchableOpacity
-          onPress={props.onIcon1Press}
           style={styles.group_btn_icon1}
         >
           <Image
@@ -26,14 +29,14 @@ const Header = (props) => {
             style={styles.group_btn_image}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={props.onIcon2Press}>
+        <TouchableOpacity>
           <Image
             source={require("../../assets/images/searchIcon.png")}
             style={styles.group_btn_image}
           />
         </TouchableOpacity>
         <View style={{width: 'auto'}}>
-        <Dropdown label="World" data={data} onSelect={setSelected} width={100}/>
+        <Dropdown label="World" data={data} onSelect={setSelected} mode={mode}/>
         </View>
       </View>
     </View>
@@ -47,9 +50,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingTop: 32,
-    paddingLeft:32,
-    paddingRight:32,
+    paddingLeft:24,
+    paddingRight:24,
     paddingBottom:16
+  },
+  headerDark: {
+    color: "#FFF",
+    fontWeight: "900",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingTop: 32,
+    paddingLeft:24,
+    paddingRight:24,
+    paddingBottom:16,
+    backgroundColor:'#142144'
   },
   header_title: {
     fontSize: 32,

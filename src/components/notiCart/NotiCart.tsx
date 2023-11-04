@@ -2,12 +2,13 @@ import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
 type Props = {
+  title: string;
 }
 
-const NotiCart = ({}: Props) => {
+const NotiCart = ({title}: Props) => {
   return (
     <View style={styles.notiCart}>
-      <Text style={{textAlign: 'center',backgroundColor:'#FFBBBB',fontSize: 32,fontWeight: '800',color:'#FFF',paddingTop:8}}>NOTE</Text>
+      <Text style={{textAlign: 'center',backgroundColor:'#FFBBBB',fontSize: 32,fontWeight: '800',color:'#FFF',paddingTop:8}}>{title}</Text>
       <View style={{display:'flex', alignItems: 'center', justifyContent:'center'}}>
         <Image source={require('../../assets/images/notiBook.png')}
         style={{height:'75%',width:'75%'}}

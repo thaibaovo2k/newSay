@@ -16,7 +16,9 @@ const Categories = ({ title,data }: Props) => {
       </Text>
       <View style={{
         backgroundColor:'#FFE2D9',
-        padding:16,
+        // padding:0,
+        paddingBottom:8,
+        paddingTop:8,
         flexDirection:'row',
         width:'100%',
         flexWrap:'wrap',
@@ -27,8 +29,8 @@ const Categories = ({ title,data }: Props) => {
         borderWidth:3
       }}>
         {data?.map((item, index) => (
-          <View key={index} style={{width:'33%',marginBottom:32}}>
-            <Text style={{textAlign:'center',fontSize:16 ,fontWeight:'900',color:color[index]}}>{item}</Text>
+          <View key={index} style={{width:'32%',marginBottom:32}}>
+            <Text style={{textAlign:'center',fontSize:14 ,fontWeight:'900',color:color[index]}}>{item}</Text>
           </View>
         ))}
       </View>

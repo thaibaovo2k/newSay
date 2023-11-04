@@ -21,17 +21,17 @@ const itemWidth = windowWidth/2
     
   return (
     <View
-      style={{ height: 180, width: itemWidth, display: "flex" ,gap:0,flexDirection:'row'}}
+      style={{ height: 180, width: itemWidth, display: "flex" ,gap:0,flexDirection:'row',padding:8,paddingRight:24}}
     >
       <Image
         source={data?.source}
-        style={{ height: 175, width: "100%" }}
+        style={{ height: '80%', width: "100%" }}
         resizeMode="contain"
       />
       <View>
       <View
         style={{
-          width: 172,
+          width: itemWidth,
           display: "flex",
           flexDirection: "row",
           alignItems: "flex-start",
@@ -44,7 +44,8 @@ const itemWidth = windowWidth/2
         }}
       >
         <View style={{flex:1}}>
-          <Text style={{ fontSize: 18 }}>{data?.name}</Text>
+          <Text style={{ fontSize: 16 }}>{data?.name}</Text>
+          
           <Text style={{fontSize:12}}>{data?.date}</Text>
         </View>
         {
@@ -65,7 +66,7 @@ const itemWidth = windowWidth/2
             </TouchableOpacity>
         }
       </View>
-      <Text style={{height:'50%',width:'25%'}}>{data?.description}</Text>
+      <Text style={{height:'70%',width:'25%',fontSize:12}}>{data?.description}</Text>
       </View>
     </View>
   );

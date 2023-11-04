@@ -42,11 +42,11 @@ const Swiper: FC<Props> = ({data}) => {
       <View
         style={{
           borderRadius: 5,
-          height: 230,
+          height: 190,
           marginLeft: 32,
           marginRight: 32
         }}>
-        <NotiCart/>
+        <NotiCart title="NOTE"/>
         <Text style={{ fontSize: 20, marginLeft:8 }}>Hotnew: <Text style={{fontWeight:'900'}}>Lorem Ipsum</Text> is simply dummy text of the printing and</Text>
         <Text style={{marginLeft:16}}>24 August, 2023 </Text>
       </View>

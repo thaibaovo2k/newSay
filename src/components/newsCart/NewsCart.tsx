@@ -23,7 +23,7 @@ const NewsCart = ({ data,btn,title }: Props) => {
     
   return (
     <View
-      style={{ height: 250, width: itemWidth, alignItems: "center", display: "flex" ,gap:0,paddingLeft:8,marginBottom:32}}
+      style={{ height: 250, width: itemWidth, alignItems: "center", display: "flex" ,gap:0,paddingLeft:8,marginBottom:32,paddingRight:8}}
     >
        <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',width:'100%',paddingLeft:8,marginBottom:8}}>
             <Text
