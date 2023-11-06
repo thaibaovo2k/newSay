@@ -6,6 +6,8 @@ import {
     Text,
     TextInput,
     View,
+    ScrollView,
+    TouchableOpacity
 } from "react-native";
 import {
     gameData2,
@@ -18,14 +20,22 @@ import Header from "../../components/header/Header";
 import HoriCategory from "../../components/horiCategory/HoriCategory";
 import NotiCart from "../../components/notiCart/NotiCart";
 import Rating from "../../components/rating/Rating";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 type Props = {};
 
-const NewsPage = (props: Props) => {
+const NewsScreen = (props: Props) => {
+  const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;
+  const handleBack = ()=> {
+    navigation.navigate('Home')
+  }
+  const handlePressMiniGame = () => {
+    navigation.navigate('MiniGameScreen')
+  }
   return (
-    <View>
-      <Header />
+    <ScrollView style={{backgroundColor: '#FFFBF5'}}>
+      <Header type="back" onBack={handleBack}/>
       <View style={{ marginLeft: 16, marginRight: 16, marginBottom: 32 }}>
         <Text style={{ fontSize: 18, fontWeight: "600", marginBottom: 4 }}>
           Think logicall, teach gobally
@@ -55,6 +65,7 @@ const NewsPage = (props: Props) => {
             they never leave their hometowns, they are still citizens of the
             world.
           </Text>
+          <TouchableOpacity onPress={handlePressMiniGame}>
           <View
             style={{
               paddingLeft: 16,
@@ -81,6 +92,7 @@ const NewsPage = (props: Props) => {
             />
             <Text>flash study test case char 01</Text>
           </View>
+          </TouchableOpacity>
           <Text style={styles.text}>
             We believe GPT that it is more importantt than ever that education
             be grounded on global awareness.{"\n"}
@@ -161,7 +173,7 @@ const NewsPage = (props: Props) => {
       <Categories title="VOCABULARY" data={topWordData} />
       <Category data={gameData2} btn={false} title="For you" />
       <HoriCategory title="Lastest news" data={wordData} btn={false} />
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -178,4 +190,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NewsPage;
+export default NewsScreen;

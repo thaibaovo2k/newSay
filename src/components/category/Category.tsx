@@ -11,7 +11,7 @@ type Props = {
 const Category = ({ title, data,btn }: Props) => {
     const windowWidth = Dimensions.get("window").width;
   return (
-    <View>
+    <View style={{marginBottom:32}}>
       <View
         style={{
           display: "flex",

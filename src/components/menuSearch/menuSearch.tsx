@@ -1,9 +1,11 @@
 import CheckBox from "expo-checkbox";
 import React, { FC, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
-interface Props {}
+import { StyleSheet, View, Text,TouchableOpacity } from "react-native";
+interface Props {
+    onPressSearch: () => void;
+}
 const data = ["Fun", "Romantic", "Ghost", "Talent", "Detective"];
-const MenuSearch: FC<Props> = ({}) => {
+const MenuSearch: FC<Props> = ({onPressSearch}) => {
   const [isSelected, setSelection] = useState(false);
   const [checkboxState, setCheckboxState] = useState(data.map(() => false));
   const handleCheckboxChange = (index) => {
@@ -11,7 +13,9 @@ const MenuSearch: FC<Props> = ({}) => {
     newCheckboxState[index] = !newCheckboxState[index];
     setCheckboxState(newCheckboxState);
   };
-  
+  const handlePressSearch = () => {
+    onPressSearch();
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Title</Text>
@@ -92,11 +96,27 @@ const MenuSearch: FC<Props> = ({}) => {
           </View>
         ))}
       </View>
-        <View style={{margin: 16,justifyContent:'center',alignItems:'center'}}>
-        <Text style={{backgroundColor:'#FFB4AA',padding:16,width:100,textAlign:'center',color:'#FFF',borderRadius:10,fontSize:20,fontWeight:'700'}}>
-            Search
+      <View
+        style={{ margin: 16, justifyContent: "center", alignItems: "center" }}
+      >
+        <TouchableOpacity onPress={handlePressSearch}>
+        <Text
+          style={{
+            backgroundColor: "#FFB4AA",
+            padding: 16,
+            width: 100,
+            textAlign: "center",
+            color: "#FFF",
+            borderRadius: 10,
+            fontSize: 20,
+            fontWeight: "700",
+            marginBottom:64
+          }}
+        >
+          Search
         </Text>
-        </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -107,6 +127,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 20,
     borderColor: "#BDB6AF",
+    marginBottom:32
   },
   title: {
     margin: 16,

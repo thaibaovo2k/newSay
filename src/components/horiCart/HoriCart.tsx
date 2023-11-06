@@ -3,12 +3,12 @@ import { StyleSheet, View, Image, Text, TouchableOpacity,Dimensions } from "reac
 import { TouchableRipple } from "react-native-paper";
 
 type Props = {
-  active: boolean;
+  mode: string;
   data: any;
   btn:boolean;
 };
 
-const HoriCart = ({ active,data,btn }: Props) => {
+const HoriCart = ({mode,data,btn }: Props) => {
     const windowWidth = Dimensions.get('window').width;
     const [status, setStatus] = useState(data?.status)
 const itemWidth = windowWidth/2
@@ -21,11 +21,11 @@ const itemWidth = windowWidth/2
     
   return (
     <View
-      style={{ height: 180, width: itemWidth, display: "flex" ,gap:0,flexDirection:'row',padding:8,paddingRight:24}}
+      style={{ height: 150, width: itemWidth, display: "flex" ,gap:0,flexDirection:'row',padding:8,paddingRight:12}}
     >
       <Image
         source={data?.source}
-        style={{ height: '80%', width: "100%" }}
+        style={{ height: '100%', width: "100%" }}
         resizeMode="contain"
       />
       <View>
@@ -44,9 +44,11 @@ const itemWidth = windowWidth/2
         }}
       >
         <View style={{flex:1}}>
-          <Text style={{ fontSize: 16 }}>{data?.name}</Text>
+          <Text style={{ fontSize: 16 ,
+              color: `${(mode == 'dark') ? '#FFF' : ''}`
+            }}>{data?.name}</Text>
           
-          <Text style={{fontSize:12}}>{data?.date}</Text>
+          <Text style={{fontSize:12,color: `${(mode == 'dark') ? '#FFF' : ''}`}}>{data?.date}</Text>
         </View>
         {
             btn && <TouchableOpacity onPress={handleClickFlag}>
@@ -66,7 +68,7 @@ const itemWidth = windowWidth/2
             </TouchableOpacity>
         }
       </View>
-      <Text style={{height:'70%',width:'25%',fontSize:12}}>{data?.description}</Text>
+      <Text style={{height:'70%',width:'25%',fontSize:12,color: `${(mode == 'dark') ? '#FFF' : '#8B8681'}`}}>{data?.description}</Text>
       </View>
     </View>
   );

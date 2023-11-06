@@ -21,11 +21,11 @@ const itemWidth = windowWidth/2
     
   return (
     <View
-      style={{ height: 250, width: itemWidth - 16, alignItems: "center", display: "flex" ,gap:0}}
+      style={{ height: 150, width: itemWidth - 16, alignItems: "center", display: "flex" ,gap:0}}
     >
       <Image
         source={data?.source}
-        style={{ height: "60%", width: "100%" }}
+        style={{ height: "95%", width: "100%" }}
         resizeMode="stretch"
       />
       <View
