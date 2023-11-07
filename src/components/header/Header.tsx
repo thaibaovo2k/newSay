@@ -46,7 +46,7 @@ const Header: FC<Props> = ({
   };
   return (
     <View style={mode == "dark" ? styles.headerDark : styles.header}>
-      <Text style={styles.header_title}>{title ? title : "DAILY NEWS"}</Text>
+      <Text style={mode == 'dark' ? styles.header_titleDark : styles.header_title}>{title ? title : "DAILY NEWS"}</Text>
       <View style={styles.group_btn}>
         <TouchableOpacity style={styles.group_btn_icon1} onPress={handleBack}>
           {type == "back" ? (
@@ -115,6 +115,12 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "900",
     color: "#142144",
+    marginBottom: 16,
+  },
+  header_titleDark: {
+    fontSize: 32,
+    fontWeight: "900",
+    color: "#FFFFFF",
     marginBottom: 16,
   },
   group_btn: {

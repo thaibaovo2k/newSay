@@ -5,6 +5,7 @@ import HomeScreen from "../../pages/student/HomeScreen";
 import { useRecoilValue } from "recoil";
 import { modeState } from "../../managerState/modeState";
 import HomeScreenMod from "../../pages/mod/HomeScreenMod";
+import MiniGameScreenMod from "../../pages/mod/MiniGameScreenMod";
 const Tab = createBottomTabNavigator();
 
 type Props = {};
@@ -128,7 +129,7 @@ const Navigation = ({}: Props) => {
     >
       <Tab.Screen name="Home" component={modeUser == 'mod' ? HomeScreenMod :HomeScreen} />
       <Tab.Screen name="Solution" component={HomeScreen} />
-      <Tab.Screen name="World" component={HomeScreen} />
+      <Tab.Screen name="World" component={MiniGameScreenMod} />
       <Tab.Screen name="Library" component={HomeScreen} />
       <Tab.Screen name="My Room" component={HomeScreen} />
     </Tab.Navigator>

@@ -5,55 +5,47 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  View,
+  Image,
   TouchableOpacity,
-  View
 } from "react-native";
 import Header from "../../components/header/Header";
 import SystemItem from "../../components/systemItem/SystemItem";
+import LinearGradient from "react-native-linear-gradient";
 
 type Props = {};
 const modList1 = [
-  "Post 001  I 20.08.2023",
-  "Post 001  I 20.08.2023",
-  "Post 001  I 20.08.2023",
-  "Post 001  I 20.08.2023",
+  "Question 01 I ABCD I 20.08.2023 I Published",
+  "Question 01 I ABCD I 20.08.2023 I Published",
+  "Question 01 I ABCD I 20.08.2023 I Published",
+  "Question 01 I ABCD I 20.08.2023 I Published",
 ];
 
-const SystemDetails = (props: Props) => {
+const SystemDetails2 = (props: Props) => {
   const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;
   const handleBack = () => {
-    navigation.navigate("Home");
-  };
-  const handleToNewPost = () => {
     navigation.navigate("NewsPostScreen");
   };
-  const handlePressSetting = (value: any) => {
-    if (value == "edit") {
-      navigation.navigate("EditPostScreen");
+  const handleToNewPost = () => {
+    navigation.navigate('NewsPostScreen')
+  }
+  const handlePressSetting = (value) => {
+    if(value == 'post') {
+        navigation.navigate('CreateQuizScreem')
     }
-  };
+    else if (value == 'edit') {
+        navigation.navigate('CreateQuizScreem')
+    }
+  }
   return (
-    <ScrollView style={{ backgroundColor: "#FFFBF5" }}>
-      <Header title="Post" type="back" onBack={handleBack} searchBtn="hide" />
-      <TouchableOpacity onPress={handleToNewPost}>
-        <View
-          style={{ alignItems: "flex-end", marginRight: 32, marginBottom: 16 }}
-        >
-          <Text
-            style={{
-              backgroundColor: "#142144",
-              color: "#FFF",
-              padding: 12,
-              fontSize: 16,
-              fontWeight: "700",
-              borderRadius: 10,
-            }}
-          >
-            New Post
-          </Text>
+    <ScrollView style={{ backgroundColor: "#142144" }}>
+      <Header title="Post" type="back" onBack={handleBack} searchBtn="hide" mode="dark"/>
+        <View style={{margin:8,marginLeft:24,gap:8}}>
+            <Text style={styles.textTitle}>Post 001 I 20.08.2023</Text>
+            <Text style={styles.textTitle}>Style: Story</Text>
+            <Text style={styles.textTitle}>Tone: Ghost, Fun</Text>
         </View>
-      </TouchableOpacity>
       <Text
         style={{
           textAlign: "center",
@@ -71,9 +63,11 @@ const SystemDetails = (props: Props) => {
           marginBottom: 220,
           padding: 16,
           borderRadius: 20,
-          backgroundColor: "#D6DFFC",
+          backgroundColor: "#FFFFFF",
+          height:400
         }}
       >
+        <Text style={{fontWeight:'700',color:'#142144',textAlign:'center',marginBottom:16}}>Name  I Level  I  Create date  I  Status   </Text>
         <View style={{ gap: 8, marginBottom: 0 }}>
           {modList1?.map((value, index) => (
             <SystemItem
@@ -84,7 +78,8 @@ const SystemDetails = (props: Props) => {
               text="disable"
               settingBtn="show"
               marginBottom={0}
-              listBtn={["edit", "create", "post", "copy", "deleteIcon"]}
+              bottom={-100}
+              listBtn={['edit','post','deleteIcon']}
               onPressSetting={handlePressSetting}
             />
           ))}
@@ -109,6 +104,10 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
+  textTitle: {
+    color:'#FFFFFF',
+    fontWeight:'700'
+  }
 });
 
-export default SystemDetails;
+export default SystemDetails2;

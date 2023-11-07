@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Header from "../../components/header/Header";
 import SystemItem from "../../components/systemItem/SystemItem";
+import Button from "../../components/button/Button";
 
 type Props = {};
 const modList1 = [
@@ -19,47 +20,33 @@ const modList1 = [
   "Post 001  I 20.08.2023",
 ];
 
-const SystemDetails = (props: Props) => {
+const MiniGameScreenMod = (props: Props) => {
   const navigation = useNavigation();
   const windowWidth = Dimensions.get("window").width;
   const handleBack = () => {
     navigation.navigate("Home");
   };
   const handleToNewPost = () => {
-    navigation.navigate("NewsPostScreen");
+    navigation.navigate("NewGameScreen");
   };
   const handlePressSetting = (value: any) => {
     if (value == "edit") {
-      navigation.navigate("EditPostScreen");
+      navigation.navigate("EditMiniGameScreen");
     }
   };
   return (
     <ScrollView style={{ backgroundColor: "#FFFBF5" }}>
-      <Header title="Post" type="back" onBack={handleBack} searchBtn="hide" />
-      <TouchableOpacity onPress={handleToNewPost}>
-        <View
-          style={{ alignItems: "flex-end", marginRight: 32, marginBottom: 16 }}
-        >
-          <Text
-            style={{
-              backgroundColor: "#142144",
-              color: "#FFF",
-              padding: 12,
-              fontSize: 16,
-              fontWeight: "700",
-              borderRadius: 10,
-            }}
-          >
-            New Post
-          </Text>
-        </View>
-      </TouchableOpacity>
+      <Header title="Mini game" type="back" onBack={handleBack} searchBtn="hide" />
+      <View style={{alignItems:'flex-end',margin:8,marginRight:24}}>
+      <Button title="New Game" onPress={handleToNewPost}/>
+      </View>
+        
       <Text
-        style={{
+        style={{ 
           textAlign: "center",
           fontSize: 18,
           fontWeight: "700",
-          color: "#142144",
+          color: "#FFB4AA",
         }}
       >
         Title I Create date I Status
@@ -71,7 +58,7 @@ const SystemDetails = (props: Props) => {
           marginBottom: 220,
           padding: 16,
           borderRadius: 20,
-          backgroundColor: "#D6DFFC",
+          // backgroundColor: "#D6DFFC",
         }}
       >
         <View style={{ gap: 8, marginBottom: 0 }}>
@@ -84,7 +71,8 @@ const SystemDetails = (props: Props) => {
               text="disable"
               settingBtn="show"
               marginBottom={0}
-              listBtn={["edit", "create", "post", "copy", "deleteIcon"]}
+              bottom={-76}
+              listBtn={["edit", "deleteIcon"]}
               onPressSetting={handlePressSetting}
             />
           ))}
@@ -111,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SystemDetails;
+export default MiniGameScreenMod;

@@ -23,7 +23,7 @@ const HomeScreenMod = (props: Props) => {
   }
   return (
     <ScrollView style={{ backgroundColor: "#FFFBF5" }}>
-      <Header title="Title"/>
+      <Header title="Title" searchBtn="hide"/>
       <View
         style={{
           marginLeft: 16,
